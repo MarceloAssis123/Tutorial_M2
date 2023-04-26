@@ -1,6 +1,6 @@
-const http = require('http');
-const hostname = '127.0.0.1';
-const port = 3011;
+const http = require('http');//cria um endereço http
+const hostname = '127.0.0.1';//endereço do servidor
+const port = 3011;//porta da pagina/arquivo
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/html');
@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
                        <H2> Meu servidor NODE.js funciona!</H2> </div> \
               </body> \
            </html>');
-});
+});//utilizando HTML é colocado texto na página web.
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
