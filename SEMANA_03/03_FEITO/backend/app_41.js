@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const sqlite3 = require('sqlite3').verbose();
-const DBPATH = '../data/dbUser.db';
+const DBPATH = '../data/Currículo.db';
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -21,7 +21,7 @@ app.get('/usuarios', (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-	var sql = 'SELECT * FROM usuario ORDER BY nome_completo COLLATE NOCASE';
+	var sql = 'SELECT * FROM TblFormacao ORDER BY curso COLLATE NOCASE';
 		db.all(sql, [],  (err, rows ) => {
 			if (err) {
 				throw err;
@@ -36,14 +36,14 @@ app.post('/insereUsuario', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-	sql = "INSERT INTO usuario (nome_completo, email, telefone) VALUES ('" + req.body.nome + "', '" + req.body.email + "', '" + req.body.telefone + "')";
+	sql = "INSERT INTO TblFormacao (curso, anoInicial, anoFinal, descricao) VALUES ('" + req.body.curso + "', '" + req.body.anoInicial + "', '" + req.body.anoFinal + "', '" + req.body.descricao + "')";
 	console.log(sql);
 	db.run(sql, [],  err => {
 		if (err) {
 		    throw err;
 		}	
 	});
-	res.write('<p>USUARIO INSERIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
+	res.write('<p>FORMACAO INSERIDA COM SUCESSO!</p><a href="/">VOLTAR</a>');
 	db.close(); // Fecha o banco
 	res.end();
 });
@@ -52,7 +52,7 @@ app.post('/insereUsuario', urlencodedParser, (req, res) => {
 app.get('/atualizaUsuario', (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); 
-	sql = "SELECT * FROM usuario WHERE userId="+ req.query.userId;
+	sql = "SELECT * FROM TblFormacao WHERE codigoDoUsuario="+ req.query.codigoDoUsuario;
 	console.log(sql);
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.all(sql, [],  (err, rows ) => {
@@ -68,7 +68,7 @@ app.get('/atualizaUsuario', (req, res) => {
 app.post('/atualizaUsuario', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); 
-	sql = "UPDATE usuario SET nome_completo='" + req.body.nome + "', email = '" + req.body.email + "' , telefone='" + req.body.telefone + "' WHERE userId='" + req.body.userId + "'";
+	sql = "UPDATE TblFormacao SET curso='" + req.body.curso + "', anoInicial = '" + req.body.anoInicial + "' , anoFinal='" + req.body.anoFinal + "' , descricao='" + req.body.descricao + "' WHERE codigoDoUsuario='" + req.body.codigoDoUsuario + "'";
 	console.log(sql);
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.run(sql, [],  err => {
@@ -77,7 +77,7 @@ app.post('/atualizaUsuario', urlencodedParser, (req, res) => {
 		}
 		res.end();
 	});
-	res.write('<p>USUARIO ATUALIZADO COM SUCESSO!</p><a href="/">VOLTAR</a>');
+	res.write('<p>FORMACAO ATUALIZADA COM SUCESSO!</p><a href="/">VOLTAR</a>');
 	db.close(); // Fecha o banco
 });
 
@@ -85,14 +85,14 @@ app.post('/atualizaUsuario', urlencodedParser, (req, res) => {
 app.get('/removeUsuario', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); 
-	sql = "DELETE FROM usuario WHERE userId='" + req.query.userId + "'";
+	sql = "DELETE FROM TblFormacao WHERE codigoDoUsuario='" + req.query.codigoDoUsuario + "'";
 	console.log(sql);
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.run(sql, [],  err => {
 		if (err) {
 		    throw err;
 		}
-		res.write('<p>USUARIO REMOVIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
+		res.write('<p>FORMACAO REMOVIDA COM SUCESSO!</p><a href="/">VOLTAR</a>');
 		res.end();
 	});
 	db.close(); // Fecha o banco
