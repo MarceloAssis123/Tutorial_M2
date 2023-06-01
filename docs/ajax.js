@@ -5,7 +5,7 @@ $('#buttonCurso').click(() => {
         dataType: 'text',
         async: true,
         success: (data) => {
-            
+
             $('#labelCurso').html(' | ' + data);
         }
     })
