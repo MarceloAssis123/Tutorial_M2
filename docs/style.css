@@ -1,0 +1,408 @@
+.conteiner {
+    display: flex;
+    justify-content: space-around;
+    margin-top: -9px;
+    height: 5000px;
+    background-color: aqua;
+    width: 97.5vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.conteiner_alinhamento {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.foto {
+    border-radius: 20%;
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.conteiner_labels {
+    position: relative;
+    width: 1250;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.segunda_label {
+    transform: translate(0, 9%);
+}
+
+.conteiner_buttonCurso {
+    width: 150px;
+    height: 45px;
+    background-color: rgb(65, 64, 64);
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.342);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .5s;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.texto {
+    color: aqua;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+    z-index: 2;
+}
+
+.conteiner_buttonCurso:hover {
+    color: rgb(230, 255, 193);
+}
+
+.efeito {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: aqua;
+    border-radius: 0%;
+    z-index: 1;
+    opacity: 0;
+    transition-duration: 1.0s;
+}
+
+.conteiner_buttonCurso:hover .efeito {
+    transform: scale(20);
+    transform-origin: center;
+    opacity: 1;
+    transition-duration: 1s;
+    border-radius: none;
+}
+
+.conteiner_buttonCurso:hover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.500),
+        0px 0px 10px rgba(0, 0, 0, 0.500),
+        0px 0px 30px rgba(0, 0, 0, 0.500);
+    transition-duration: .7s;
+}
+
+.conteiner_buttonCurso:hover .texto {
+    color: rgb(65, 64, 64);
+}
+
+.conteiner_buttonCurso:hover {
+    fill: rgb(65, 64, 64);
+}
+
+.informacoesGerais {
+    display: flex;
+    flex-direction: row;
+    width: 97.5vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.informacoesGerais_colounas {
+    display: flex;
+    flex-direction: column;
+}
+
+.informacoesGerais_colunas_bloco {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    bottom: 2em;
+    width: 48.5vw;
+    align-items: center;
+}
+
+.opcoesDeContato img {
+    height: 50px;
+}
+
+.opcoesDeContato {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e7e7e7;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+    height: 135px;
+    width: 48vw;
+}
+
+.opcoesDeContato::before,
+.opcoesDeContato::after {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    transition: 0.25s linear;
+    z-index: 1;
+}
+
+.opcoesDeContato::before {
+    content: "";
+    left: 0;
+    justify-content: flex-end;
+    background-color: #4d60b6;
+}
+
+.opcoesDeContato::after {
+    content: "";
+    right: 0;
+    justify-content: flex-start;
+    background-color: #4453a6;
+}
+
+.opcoesDeContato:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.opcoesDeContato:hover span {
+    opacity: 0;
+    z-index: -3;
+}
+
+.opcoesDeContato:hover::before {
+    opacity: 0.5;
+    transform: translateY(-100%);
+}
+
+.opcoesDeContato:hover::after {
+    opacity: 0.5;
+    transform: translateY(100%);
+}
+
+.opcoesDeContato span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: whitesmoke;
+    font-family: 'Fira Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    opacity: 1;
+    transition: opacity 0.25s;
+    z-index: 2;
+}
+
+.opcoesDeContato .redeSocial {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    color: whitesmoke;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.opcoesDeContato .redeSocial img {
+    text-shadow: 1px 1px rgba(31, 74, 121, 0.7);
+    transform: scale(1);
+}
+
+.opcoesDeContato .redeSocial:hover {
+    background-color: rgba(249, 244, 255, 0.774);
+    animation: bounce_613 0.4s linear;
+}
+
+@keyframes bounce_613 {
+    40% {
+        transform: scale(1.4);
+    }
+
+    60% {
+        transform: scale(0.8);
+    }
+
+    80% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.informacoesGerais_colunas_bloco2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 2em;
+    width: 48.5vw;
+}
+
+.niveis {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+.bolinha {
+    width: 20px;
+    height: 20px;
+    background-color: #010058;
+    border-radius: 50%;
+    transform: translate(0, 110%);
+}
+
+.ajusteBolinhas {
+    display: flex;
+    flex-direction: row;
+}
+
+.MaisMenosInformacao {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.MaisMenosInformacao_botao1 {
+    position: relative;
+    background-color: transparent;
+    color: #e8e8e8;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 10px;
+    width: 150px;
+    height: 60px;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.MaisMenosInformacao_botao1::before {
+    content: url(./imagens/seta.svg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(135deg, aqua, aqua);
+    transform: translate(0%, 90%);
+    z-index: 99;
+    position: relative;
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.MaisMenosInformacao_botao1::after {
+    content: "Mostrar Menos";
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform-origin: top;
+    transform: translate(0%, -100%);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.MaisMenosInformacao_botao1:hover::before {
+    transform: translate(0%, 0%);
+}
+
+.MaisMenosInformacao_botao1:hover::after {
+    transform: translate(0%, -200%);
+}
+
+.MaisMenosInformacao_botao1:focus {
+    outline: none;
+}
+
+.MaisMenosInformacao_botao1:active {
+    scale: 0.95;
+}
+
+.MaisMenosInformacao_botao2 {
+    position: relative;
+    background-color: transparent;
+    color: #e8e8e8;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 10px;
+    width: 150px;
+    height: 60px;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.MaisMenosInformacao_botao2::before {
+    content: url(./imagens/setaInvertida.svg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(135deg, aqua, aqua);
+    transform: translate(0%, -90%);
+    z-index: 99;
+    position: relative;
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.MaisMenosInformacao_botao2::after {
+    content: "Mostrar Mais";
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform-origin: top;
+    transform: translate(0%, -100%);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.MaisMenosInformacao_botao2:hover::before {
+    transform: translate(0%, 0%);
+}
+
+.MaisMenosInformacao_botao2:hover::after {
+    transform: translate(0%, 0%);
+}
+
+.MaisMenosInformacao_botao2:focus {
+    outline: none;
+}
+
+.MaisMenosInformacao_botao2:active {
+    scale: 0.95;
+}
